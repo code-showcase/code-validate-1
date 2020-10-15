@@ -5,15 +5,22 @@
     Welcome to {{title}}!!
   </h1>
   <form [formGroup]="angForm" novalidate>
-    <div class="form-group">
+    <div>
       <label>First Name:</label>
-      <input class="form-control" formControlName="fname" type="text" [value]="angForm.get('fname').value | capitalize">
+      <input formControlName="fname" type="text">
+      <!-- [value]="angForm.get('fname').value | capitalize"> -->
     </div>
 
-    <div class="form-group">
+    <div>
       <label>Last Name:</label>
-      <input class="form-control" formControlName="lname" type="text">
+      <input formControlName="lname" type="text">
     </div>
+
+    <div>
+      <label for="phone">Enter your phone number:</label>
+      <input ng2TelInput [ng2TelInputOptions]="{initialCountry: 'us'}" formControlName="formControlPhone" />
+    </div>
+
 
     <button type="submit" [disabled]="angForm.invalid" class="btn btn-success">
       Save
